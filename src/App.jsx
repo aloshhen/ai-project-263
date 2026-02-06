@@ -1,6 +1,6 @@
-import { useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import { clsx, ClassValue } from 'clsx'
+import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 // Utility for tailwind class merging (JS only, no types)
@@ -36,16 +36,6 @@ const SafeIcon = ({ name, size = 24, className = '', color }) => {
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 }
-}
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 }
-}
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1 }
 }
 
 const staggerContainer = {
@@ -441,7 +431,7 @@ const TestimonialCard = ({ testimonial, index }) => {
 // Contact Form Component
 const ContactForm = () => {
   const { isSubmitting, isSuccess, isError, errorMessage, handleSubmit, resetForm } = useFormHandler()
-  const ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY' // Replace with your Web3Forms Access Key from https://web3forms.com
+  const ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'
 
   return (
     <div className="relative">
@@ -583,7 +573,7 @@ function App() {
   const products = [
     {
       name: 'Космический корабль Explorer',
-      description: 'Большой космический корабль с 847 деталями. Открывающаяся кабина, шасси и минifigures пилотов.',
+      description: 'Большой космический корабль с 847 деталями. Открывающаяся кабина, шасси и фигурки пилотов.',
       price: 3490,
       oldPrice: 4290,
       rating: 5,
